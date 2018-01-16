@@ -1,1 +1,5 @@
-# docker_ubuntu
+# Oracle Linux Docker Container for FISPACT-II
+
+Automated build of Oracle Linux images with the required dependencies for [FISPACT-II](http://fispact.ukaea.uk).
+
+Available on the Docker Hub as [fispact/oraclelinux](https://hub.docker.com/r/fispact/oraclelinux/).
