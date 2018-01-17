@@ -1,5 +1,5 @@
 FROM oraclelinux:7.4
-MAINTAINER UKAEA
+MAINTAINER UKAEA <admin@fispact.ukaea.uk>
 
 # Build-time metadata as defined at http://label-schema.org
 ARG PROJECT_NAME
@@ -32,24 +32,7 @@ RUN yum -y update && \
     yum -y groupinstall development && \
     yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel && \
     yum install -y readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel expat-devel && \
-    # we must compile gcc ourselves since we can only get gcc-4 from yum
-    wget https://ftp.gnu.org/gnu/gcc/gcc-6.2.0/gcc-6.2.0.tar.gz && \
-    tar -xzf gcc-6.2.0.tar.gz && \
-    cd gcc-6.2.0 && ./contrib/download_prerequisites && cd / && \
-    mkdir gcc-6.2.0-build && cd gcc-6.2.0-build && \
-    ../gcc-6.2.0/configure --enable-languages=c,c++,fortran --disable-multilib && \
     export NCPUS=$(getconf _NPROCESSORS_ONLN) && \
-    make -j${NCPUS} && \
-    make install && \
-    mv /usr/bin/g++ /usr/bin/g++-4 && \
-    mv /usr/bin/gcc /usr/bin/gcc-4 && \
-    mv /usr/bin/gfortran /usr/bin/gfortran-4 && \
-    ln -sf /usr/local/bin/g++-6.2.0 /usr/bin/g++ && \
-    ln -sf /usr/local/bin/gcc-6.2.0 /usr/bin/gcc && \
-    ln -sf /usr/local/bin/gfortran-6.2.0 /usr/bin/gfortran && \
-    cp /usr/local/lib64/libgfortran.* /usr/lib64/ && \
-    cp /usr/local/lib64/libquadmath.* /usr/lib64/ && \
-    cd / && \
     wget http://python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz && \
     tar xf Python-3.6.3.tar.xz && cd Python-3.6.3 && \
     ./configure --prefix=/usr/local --with-ensurepip=install --enable-optimizations --enable-shared LDFLAGS="-Wl,-rpath /usr/local/lib" && \
@@ -61,6 +44,6 @@ RUN yum -y update && \
     pip install --upgrade pip && \
     pip install pytest pytest-xdist pypact numpy && \
     # clean up
-    cd / && rm -rf gcc-6.2.0.tar.gz gcc-6.2.0-build Python-3.6.3.tar.xz Python-3.6.3
+    cd / && rm -rf Python-3.6.3.tar.xz Python-3.6.3
 
 CMD /bin/bash $RUN_SCRIPT
