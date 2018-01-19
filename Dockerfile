@@ -31,19 +31,6 @@ RUN yum -y update && \
     yum -y install yum-utils && \
     yum -y groupinstall development && \
     yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel && \
-    yum install -y readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel expat-devel && \
-    export NCPUS=$(getconf _NPROCESSORS_ONLN) && \
-    wget http://python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz && \
-    tar xf Python-3.6.3.tar.xz && cd Python-3.6.3 && \
-    ./configure --prefix=/usr/local --with-ensurepip=install --enable-optimizations --enable-shared LDFLAGS="-Wl,-rpath /usr/local/lib" && \
-    make -j${NCPUS} && \
-    make altinstall && \
-    make install && \
-    ln -sf /usr/local/bin/pip3.6 /usr/local/bin/pip && \
-    # pip3 packages
-    pip install --upgrade pip && \
-    pip install pytest pytest-xdist pypact numpy && \
-    # clean up
-    cd / && rm -rf Python-3.6.3.tar.xz Python-3.6.3
+    yum install -y readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel expat-devel
 
 CMD /bin/bash $RUN_SCRIPT
