@@ -1,4 +1,4 @@
-FROM oraclelinux:7.4
+FROM oraclelinux:8
 MAINTAINER UKAEA <admin@fispact.ukaea.uk>
 
 # Build-time metadata as defined at http://label-schema.org
