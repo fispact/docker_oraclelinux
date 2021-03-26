@@ -29,6 +29,8 @@ RUN yum -y update && \
     yum install -y autoconf automake zlib-devel libpng-devel libjpeg-devel bzip2 zip && \
     yum install -y gsl-devel freetype-devel && \
     yum -y install yum-utils && \
+    yum -y install python3 && \
+    yum -y install python3-devel &&\
     yum -y groupinstall development && \
     yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel && \
     yum install -y readline-devel tk-devel gdbm-devel xz-devel expat-devel
