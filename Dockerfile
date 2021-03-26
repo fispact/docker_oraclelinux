@@ -23,7 +23,7 @@ WORKDIR /
 
 # Install additional packages
 RUN yum -y update && \
-    yum install -y wget which make cmake gmake less doxygen rsync nano tar texi2html texinfo xz && \
+    yum install -y wget which make cmake less rsync nano tar xz && \
     yum install -y libgcc gcc-c++ bzip2 && \
     yum install -y gmp-devel mpfr-devel libmpc-devel openssl-devel && \
     yum install -y python-devel autoconf automake zlib-devel libpng-devel libjpeg-devel bzip2 zip && \
