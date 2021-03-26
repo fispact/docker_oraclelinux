@@ -23,8 +23,8 @@ WORKDIR /
 
 # Install additional packages
 RUN yum install --nogpgcheck -y wget && \
-    yum install --nogpgcheck -y python3 && \ **
-    yum install --nogpgcheck -y python3-devel &&\ **
+    yum install --nogpgcheck -y python3 && \ 
+    yum install --nogpgcheck -y python3-devel &&\ 
     wget https://public-yum.oracle.com/public-yum-ol7.repo -O /etc/yum.repos.d/public-yum-ol7.repo && \
     yum  --nogpgcheck -y update && \
     yum install --nogpgcheck -y which make cmake less rsync nano tar xz && \
