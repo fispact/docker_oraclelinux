@@ -26,8 +26,7 @@ RUN yum -y update && \
     yum install -y wget which make cmake less rsync nano tar xz && \
     yum install -y libgcc gcc-c++ bzip2 && \
     yum install -y gmp-devel mpfr-devel openssl-devel && \
-    yum install -y --enablerepo ol8_optional_latest python3-devel && \
-    yum install -y python-devel autoconf automake zlib-devel libpng-devel libjpeg-devel bzip2 zip && \
+    yum install -y autoconf automake zlib-devel libpng-devel libjpeg-devel bzip2 zip && \
     yum install -y gsl-devel lapack-devel freetype-devel && \
     yum -y install yum-utils && \
     yum -y groupinstall development && \
