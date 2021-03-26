@@ -24,7 +24,7 @@ WORKDIR /
 # Install additional packages
 RUN yum install --nogpgcheck -y wget && \
     wget https://public-yum.oracle.com/public-yum-ol7.repo -O /etc/yum.repos.d/public-yum-ol7.repo && \
-    yum -y update && \
+    yum  --nogpgcheck -y update && \
     yum install --nogpgcheck -y which make cmake less rsync nano tar xz && \
     yum install --nogpgcheck -y libgcc gcc-c++ bzip2 && \
     yum install --nogpgcheck -y gmp-devel mpfr-devel openssl-devel && \
