@@ -22,9 +22,10 @@ ENV RUN_SCRIPT ~/.bashrc
 WORKDIR /
 
 # Install additional packages
-RUN wget https://public-yum.oracle.com/public-yum-ol7.repo -O /etc/yum.repos.d/public-yum-ol7.repo && \
+RUN yum install -y wget && \
+    wget https://public-yum.oracle.com/public-yum-ol7.repo -O /etc/yum.repos.d/public-yum-ol7.repo && \
     yum -y update && \
-    yum install -y wget which make cmake less rsync nano tar xz && \
+    yum install -y which make cmake less rsync nano tar xz && \
     yum install -y libgcc gcc-c++ bzip2 && \
     yum install -y gmp-devel mpfr-devel openssl-devel && \
     yum install -y autoconf automake zlib-devel libpng-devel libjpeg-devel bzip2 zip && \
