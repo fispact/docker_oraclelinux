@@ -29,6 +29,7 @@ RUN yum -y update && \
     yum install -y autoconf automake zlib-devel libpng-devel libjpeg-devel bzip2 zip && \
     yum install -y gsl-devel freetype-devel && \
     yum -y install yum-utils && \
+    yum -y install gcc-gfortran && \
     yum -y install python3 && \
     yum -y install python3-devel &&\
     yum -y groupinstall development && \
